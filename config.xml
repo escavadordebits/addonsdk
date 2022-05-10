@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config.xml>
+  <config>
+    <Licenseserver>CMCAPPSERVER:40000</Licenseserver>
+    <ServerSAP>CMCAPPSERVER</ServerSAP>
+    <userDB>sa</userDB>
+    <passwordDB>cMc010708</passwordDB>
+    <tiposerver>dst_MSSQL2014</tiposerver>
+    <Empresa>SBO_CMCOUTO_PRD2904v10</Empresa>
+    <UserSAP>manager</UserSAP>
+    <SenhaSAP>netbeans</SenhaSAP>
+  </config>
+</Config.xml>

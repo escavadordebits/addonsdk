@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelodeAprov", "ModelodeAprov\ModelodeAprov.csproj", "{1EA580CD-6584-4284-943C-27803A07D267}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EA580CD-6584-4284-943C-27803A07D267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA580CD-6584-4284-943C-27803A07D267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA580CD-6584-4284-943C-27803A07D267}.Debug|x64.ActiveCfg = Debug|x64
+		{1EA580CD-6584-4284-943C-27803A07D267}.Debug|x64.Build.0 = Debug|x64
+		{1EA580CD-6584-4284-943C-27803A07D267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA580CD-6584-4284-943C-27803A07D267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA580CD-6584-4284-943C-27803A07D267}.Release|x64.ActiveCfg = Release|x64
+		{1EA580CD-6584-4284-943C-27803A07D267}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F09629E-7E49-47F9-AB76-C232171A72A6}
+	EndGlobalSection
+EndGlobal

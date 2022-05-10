@@ -1,0 +1,13 @@
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.exe.config
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.exe
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.pdb
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csproj.AssemblyReference.cache
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\Interop.SAPbobsCOM.dll
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csproj.ResolveComReference.cache
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.Form1.resources
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.Login.resources
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.Properties.Resources.resources
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csproj.GenerateResource.cache
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csproj.CoreCompileInputs.cache
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.exe
+C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.pdb

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config.xml>
+  <config>
+    <Licenseserver>srvevoazsap01:40000</Licenseserver>
+    <ServerSAP>SRVEVOAZDB01</ServerSAP>
+    <userDB>svc_dbsap</userDB>
+    <passwordDB>svc_8@#rskT@3!</passwordDB>
+    <tiposerver>dst_MSSQL2017</tiposerver>
+    <Empresa>SBO_DESENV_EVO</Empresa>
+    <UserSAP>manager</UserSAP>
+    <SenhaSAP>Evo@09</SenhaSAP>
+  </config>
+</Config.xml>
