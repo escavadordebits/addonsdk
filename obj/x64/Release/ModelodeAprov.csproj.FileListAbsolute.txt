@@ -14,7 +14,6 @@ C:\Projetos\Evo\ModelodeAprov\ModelodeAprov\ModelodeAprov\obj\x64\Release\Modelo
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.exe.config
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.exe
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\bin\x64\Release\ModelodeAprov.pdb
-C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csprojAssemblyReference.cache
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Release\Interop.SAPbobsCOM.dll
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.csproj.ResolveComReference.cache
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Release\ModelodeAprov.Form1.resources

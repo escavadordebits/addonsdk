@@ -14,7 +14,7 @@ namespace ModelodeAprov.models
         public string Usuario { get; set; }
         public string Obervacao { get; set; }
         public string PN { get; set; }
-        public decimal Total { get; set; }
+        public string Total { get; set; }
         public string Status { get; set; }
 
     }

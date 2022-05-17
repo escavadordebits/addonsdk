@@ -6,7 +6,7 @@
     <userDB>sa</userDB>
     <passwordDB>cMc010708</passwordDB>
     <tiposerver>dst_MSSQL2014</tiposerver>
-    <Empresa>SBO_CMCOUTO_PRD2904v10</Empresa>
+    <Empresa>SBO_CMCOUTO_PRD</Empresa>
     <UserSAP>manager</UserSAP>
     <SenhaSAP>netbeans</SenhaSAP>
   </config>

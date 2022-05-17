@@ -44,20 +44,20 @@ namespace ModelodeAprov
             // lbLogin
             // 
             this.lbLogin.AutoSize = true;
-            this.lbLogin.Font = new System.Drawing.Font("Arial Narrow", 10F);
+            this.lbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbLogin.Location = new System.Drawing.Point(220, 148);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(34, 17);
+            this.lbLogin.Size = new System.Drawing.Size(43, 17);
             this.lbLogin.TabIndex = 0;
             this.lbLogin.Text = "Login";
             // 
             // lbSenha
             // 
             this.lbSenha.AutoSize = true;
-            this.lbSenha.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSenha.Location = new System.Drawing.Point(220, 182);
             this.lbSenha.Name = "lbSenha";
-            this.lbSenha.Size = new System.Drawing.Size(39, 16);
+            this.lbSenha.Size = new System.Drawing.Size(47, 16);
             this.lbSenha.TabIndex = 1;
             this.lbSenha.Text = "Senha";
             // 
@@ -132,6 +132,7 @@ namespace ModelodeAprov
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbSenha);
             this.Controls.Add(this.lbLogin);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
@@ -140,6 +141,7 @@ namespace ModelodeAprov
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sap Business One - Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

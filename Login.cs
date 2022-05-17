@@ -61,9 +61,20 @@ namespace ModelodeAprov
             DialogResult dialog = new DialogResult();
             dialog = MessageBox.Show("Deseja mesmo encerrar?", "Alerta!", MessageBoxButtons.YesNo);
 
+
+
             if (dialog == DialogResult.Yes)
             {
+                ConectaSAP.oCompany.Disconnect();
                 Application.Exit();
+            }
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
         }
     }

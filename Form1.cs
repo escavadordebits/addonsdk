@@ -13,7 +13,8 @@ namespace ModelodeAprov
 
         
 
-        private string status;
+        private string status = "and  dd.Status in ('W')";
+        private string squery;
  
         public Form1()
         {
@@ -24,48 +25,25 @@ namespace ModelodeAprov
 
         private void Form1_Load(object sender, EventArgs e) {
 
+            //checkBox3.Checked = true;
+            //AtualizarGrid(LoginUser.user);
             
-            carregaGrid();
+             carregaGrid(LoginUser.user);
 
         }
 
-        private void carregaGrid()
+        private void carregaGrid( string user)
         {
 
             if (ConectaSAP.oCompany.Connected)
             {
                 DIAPI.Recordset oRecSetBuscarAprov = ConectaSAP.oCompany.GetBusinessObject(DIAPI.BoObjectTypes.BoRecordset);
 
-                string query = @"select 
-                                convert(nvarchar(100),c1.srcPath) + '\' + c1.[FILENAME] + '.' + c1.FileExt [Anexo]
-                                ,dd.wddcode Codigo
-                                , tm.[Name] Modelo
-                                ,sr.U_NAME [Usuario]
-                                ,dd.Remarks [Observacao]
-                                ,rf.CardName PN
-                                , rf.DocTotal Total
-
-                                 ,case 
-                                when status = 'W' then'Pendente'
-                                when status = 'Y' then 'Aprovado'
-                                when status = 'N'then 'Rejeitado'
-                                when status = 'P' then  'Gerado'
-                                when status = 'A' then ' Gerado pelo Autorizador'
-                                when status = 'C' then  'Canceled' end as Status
-
-                                from
-                                owdd dd
-                                inner
-                                join owtm tm on tm.WtmCode = dd.WtmCode
-                                inner
-                                join ousr sr on sr.USERID = dd.UserSign
-                                inner
-                                join ODRF rf on rf.DocEntry = dd.DraftEntry and rf.ObjType = dd.ObjType
-                                left join atc1 c1 on c1.AbsEntry = rf.AtcEntry";
+                Pesquisar(LoginUser.user);
 
                 try
                 {
-                    oRecSetBuscarAprov.DoQuery(query);
+                    oRecSetBuscarAprov.DoQuery(squery);
 
                 }
                 catch (Exception e)
@@ -110,7 +88,7 @@ namespace ModelodeAprov
                         Usuario = oRecSetBuscarAprov.Fields.Item("Usuario").Value.ToString(),
                         Obervacao = oRecSetBuscarAprov.Fields.Item("Observacao").Value.ToString(),
                         PN = oRecSetBuscarAprov.Fields.Item("PN").Value.ToString(),
-                        Total = Convert.ToDecimal(oRecSetBuscarAprov.Fields.Item("Total").Value.ToString()),
+                        Total = oRecSetBuscarAprov.Fields.Item("Total").Value.ToString(),
                         Status = oRecSetBuscarAprov.Fields.Item("Status").Value.ToString(),
                         Anexo = oRecSetBuscarAprov.Fields.Item("Anexo").Value.ToString(),
 
@@ -139,7 +117,7 @@ namespace ModelodeAprov
 
 
                 string selAprov = row.Cells["Status"].Value.ToString();
-                int Code = Convert.ToInt32(row.Cells["Codigo"].Value.ToString());
+                int Code = Convert.ToInt32(row.Cells["Código"].Value.ToString());
 
 
                 if (Convert.ToBoolean(row.Cells["Aprovar"].FormattedValue))
@@ -168,7 +146,7 @@ namespace ModelodeAprov
                         try
                         {
                             approvalSrv.UpdateRequest(oData);
-                 
+                            AtualizarGrid(LoginUser.user);
 
                         }
                         catch (Exception ex)
@@ -251,83 +229,54 @@ namespace ModelodeAprov
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AtualizarGrid();
+
+            //Aprovado
+            if (checkBox2.Checked && !checkBox3.Checked && !checkBox4.Checked)
+            {
+                status = "and  dd.Status in ('Y')";
+
+            }
+            //Pendente
+            if (checkBox3.Checked && !checkBox2.Checked && !checkBox4.Checked)
+            {
+                status = "and  dd.Status in ('W')";
+
+            }
+            //Aprovado e pendente
+            if (checkBox2.Checked && checkBox3.Checked && !checkBox4.Checked)
+            {
+                status = "and  dd.Status in ('Y','W')";
+
+            }
+            //todos
+            if (!checkBox3.Checked && !checkBox2.Checked && checkBox4.Checked)
+            {
+                status = "and  dd.Status in ('Y','W','N','P','A','C')";
+
+            }
+
+            //aprovado, pendente e todos
+            if (checkBox3.Checked && checkBox2.Checked && checkBox4.Checked)
+            {
+                status = "";
+
+            }
+
+            AtualizarGrid(LoginUser.user);
         }
 
-        private void AtualizarGrid()
+        private void AtualizarGrid( string user)
         {
-
-            
 
             if (ConectaSAP.oCompany.Connected)
             {
-                //Aprovado
-                if (checkBox2.Checked && !checkBox3.Checked && !checkBox4.Checked)
-                {
-                    status = "where  dd.Status in ('Y')";
-
-                }
-                //Pendente
-                if (checkBox3.Checked && !checkBox2.Checked && !checkBox4.Checked)
-                {
-                    status = "where  dd.Status in ('W')";
-
-                }
-                //Aprovado e pendente
-                if (checkBox2.Checked && checkBox3.Checked && !checkBox4.Checked)
-                {
-                    status = "where  dd.Status in ('Y','W')";
-
-                }
-                //todos
-                if (!checkBox3.Checked && !checkBox2.Checked && checkBox4.Checked)
-                {
-                    status = "where  dd.Status in ('Y','W','N','P','A','C')";
-
-                }
-
-
-                //aprovado, pendente e todos
-                if (checkBox3.Checked && checkBox2.Checked && checkBox4.Checked)
-                {
-                    status = "";
-
-                }
-
-
-
-                string query = @"select 
-                                convert(nvarchar(100),c1.srcPath) + '\' + c1.[FILENAME] + '.' + c1.FileExt [Anexo]
-                                ,dd.wddcode Codigo
-                                , tm.[Name] Modelo
-                                ,sr.U_NAME [Usuario]
-                                ,dd.Remarks [Observacao]
-                                ,rf.CardName PN
-                                , rf.DocTotal Total
-
-                                 ,case 
-                                when status = 'W' then'Pendente'
-                                when status = 'Y' then 'Aprovado'
-                                when status = 'N'then 'Rejeitado'
-                                when status = 'P' then  'Gerado'
-                                when status = 'A' then ' Gerado pelo Autorizador'
-                                when status = 'C' then  'Canceled' end as Status
-
-                                from
-                                owdd dd
-                                inner
-                                join owtm tm on tm.WtmCode = dd.WtmCode
-                                inner
-                                join ousr sr on sr.USERID = dd.UserSign
-                                inner
-                                join ODRF rf on rf.DocEntry = dd.DraftEntry and rf.ObjType = dd.ObjType
-                                left join atc1 c1 on c1.AbsEntry = rf.AtcEntry " + status;
-
+ 
+                Pesquisar(LoginUser.user);
                 DIAPI.Recordset oRecSetBuscarAprov = ConectaSAP.oCompany.GetBusinessObject(DIAPI.BoObjectTypes.BoRecordset);
 
                 try
                 {
-                    oRecSetBuscarAprov.DoQuery(query);
+                    oRecSetBuscarAprov.DoQuery(squery);
 
                 }
                 catch (Exception e)
@@ -363,7 +312,7 @@ namespace ModelodeAprov
                         Usuario = oRecSetBuscarAprov.Fields.Item("Usuario").Value.ToString(),
                         Obervacao = oRecSetBuscarAprov.Fields.Item("Observacao").Value.ToString(),
                         PN = oRecSetBuscarAprov.Fields.Item("PN").Value.ToString(),
-                        Total = Convert.ToDecimal(oRecSetBuscarAprov.Fields.Item("Total").Value.ToString()),
+                        Total =oRecSetBuscarAprov.Fields.Item("Total").Value.ToString(),
                         Status = oRecSetBuscarAprov.Fields.Item("Status").Value.ToString(),
                         Anexo = oRecSetBuscarAprov.Fields.Item("Anexo").Value.ToString(),
 
@@ -379,6 +328,40 @@ namespace ModelodeAprov
             }
         }
 
+        private void Pesquisar(string user)
+        {
+            squery = @"select 
+                                convert(nvarchar(100),c1.trgtPath) + '\' + c1.[FILENAME] + '.' + c1.FileExt [Anexo]
+                                ,rf.DocNum Codigo
+                                , tm.[Name] Modelo
+                                ,sr.U_NAME [Usuario]
+                                ,dd.Remarks [Observacao]
+                                ,rf.CardName PN
+                                ,FORMAT( rf.DocTotal, 'C', 'pt-br') Total
+
+                                 ,case 
+                                when status = 'W' then'Pendente'
+                                when status = 'Y' then 'Aprovado'
+                                when status = 'N'then 'Rejeitado'
+                                when status = 'P' then  'Gerado'
+                                when status = 'A' then ' Gerado pelo Autorizador'
+                                when status = 'C' then  'Canceled' end as Status
+
+                                from
+                                owdd dd 
+								inner join owtm tm on tm.WtmCode = dd.WtmCode
+								inner join ousr sr on sr.USERID = dd.UserSign
+								left join OWST st  on st.WstCode= dd.CurrStep 
+								left join WST1 st1 on st1.WstCode = st.WstCode
+								inner join ODRF rf on rf.DocEntry = dd.DraftEntry and rf.ObjType in ('22','204') 
+								left join atc1 c1 on c1.AbsEntry = rf.AtcEntry
+								inner join OUSR on OUSR.USERID = st1.UserID
+                                where tm.Active = 'Y'  and dd.ProcesStat in ('Y','W') and rf.DocStatus <> 'C' and OUSR.USER_CODE = '" + user + "' " + status;
+
+
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
@@ -386,6 +369,7 @@ namespace ModelodeAprov
 
             if (dialog == DialogResult.Yes)
             {
+                ConectaSAP.oCompany.Disconnect();
                 Application.Exit();
             }
         }

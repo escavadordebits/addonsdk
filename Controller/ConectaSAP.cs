@@ -63,6 +63,7 @@ namespace ModelodeAprov.Controller
             if (RetValSAP != 0)
             {
                 string ErrMsg = oCompany.GetLastErrorDescription();
+                MessageBox.Show(ErrMsg);
                 Escrevelog(ErrMsg);
             }
             else

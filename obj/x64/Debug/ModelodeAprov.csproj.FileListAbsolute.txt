@@ -23,3 +23,4 @@ C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Debug\ModelodeAprov.c
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Debug\ModelodeAprov.csproj.CoreCompileInputs.cache
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Debug\ModelodeAprov.exe
 C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Debug\ModelodeAprov.pdb
+C:\Atualizar\ADDON_IPT\ModelodeAprov\ModelodeAprov\obj\x64\Debug\ModelodeAprov.csprojAssemblyReference.cache
